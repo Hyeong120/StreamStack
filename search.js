@@ -8,19 +8,6 @@ let selectedMovie = null;
 // Load movies when page loads
 document.addEventListener('DOMContentLoaded', function() {
     loadMovies();
-    
-    // Check for search query in URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlParams.get('search');
-    console.log(searchQuery);
-    if (searchQuery) {
-        console.log("a");
-        document.getElementById('searchInput').value = searchQuery;
-        const OutsideSearch = ben(searchQuery, "relevance");
-        console.log(OutsideSearch);
-        displayResults(OutsideSearch);
-        updateResultsInfo(searchQuery);
-    }
 });
 
 // Load movies from JSON file
@@ -28,6 +15,19 @@ async function loadMovies() {
         const response = await fetch('https://raw.githubusercontent.com/Bentelador/movie-bai/refs/heads/main/MDB.json');
         allMovies = await response.json();
         console.log(`Loaded ${allMovies.length} movies`);
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+    console.log(searchQuery);
+    
+    if (searchQuery) {
+        console.log("a");
+        document.getElementById('searchInput').value = searchQuery;
+        const OutsideSearch = await ben(searchQuery, "relevance");
+        console.log(OutsideSearch);
+        displayResults(OutsideSearch);
+        updateResultsInfo(searchQuery);
+    }
 }
 
 
