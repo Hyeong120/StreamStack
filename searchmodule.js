@@ -1,11 +1,7 @@
-async function ben(serch, sort){
+async function ben(serch, sort, jsonData){
   let result;
-  await fetch('https://raw.githubusercontent.com/Bentelador/movie-bai/refs/heads/main/MDB.json')
-    .then(response => response.json())
-    .then(jsonData => {
-      let aresult = jsonData.filter(n => n.title.toLowerCase().includes(serch));
-      result = sorta(sort,aresult,serch)
-    })
+  let aresult = jsonData.filter(n => n.title.toLowerCase().includes(serch));
+  result = sorta(sort,aresult,serch)
   return result;
 }
 
@@ -86,6 +82,7 @@ async function searchfunc(serch, BS, sort){
 
 export default ben
 export { searchfunc }
+
 
 
 
