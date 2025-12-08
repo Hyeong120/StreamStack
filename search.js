@@ -25,14 +25,11 @@ async function loadMovies() {
     
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get('search');
-    console.log(searchQuery);
     
     if (searchQuery) {
-        console.log("a");
         document.getElementById('searchInput').value = searchQuery;
         query = searchQuery
         const OutsideSearch = await ben(searchQuery, "relevance", allMovies);
-        console.log(OutsideSearch);
         displayResults(OutsideSearch);
         updateResultsInfo(searchQuery,OutsideSearch);
     }
@@ -42,7 +39,6 @@ async function loadMovies() {
 // Perform search
 async function performSearch() {
     query = document.getElementById('searchInput').value;
-    console.log(query,genres,sortBy)
     const currentResults = await searchfunc(query,genres,sortBy,allMovies);
     currentPage = 1;
     displayResults(currentResults);
@@ -72,14 +68,12 @@ function displayResults(currentResults) {
     }
     
     // Calculate which results to show (pagination)
-    console.log(currentResults)
     const startIndex = 0;
     const endIndex = currentPage * resultsPerPage;
     const resultsToShow = currentResults.slice(startIndex, endIndex);
     
     // Clear previous results
     resultsGrid.innerHTML = '';
-    console.log(resultsGrid.innerHTML)
     
     // Display results
     resultsToShow.forEach(movie => {
@@ -326,7 +320,9 @@ loadbtn.addEventListener("click", function() {
     loadMoreResults();
 })
 // Handle search input Enter key
-document.getElementById('searchInput').addEventListener('changed', function() {
-    performSearch();
+document.getElementById('searchInput').addEventListener('keydown', function(k) {
+    if (k.key == 'Enter') {
+        performSearch();
+    }
 });
 
