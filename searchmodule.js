@@ -66,13 +66,13 @@ async function searchfunc(serch, BS, sort, jsonData){
   const arr = BS
   const res = jsonData.filter(n => arr.every(genreArray => n.genre.includes(genreArray)))
   let aresult = res.filter(n => n.title.toLowerCase().includes(serch))
-  let resultuncut = sorta(sort,aresult,serch)
-  result = resultuncut.slice(0,amount)
+  result = sorta(sort,aresult,serch)
   return result;
 }
 
 export default ben
 export { searchfunc }
+
 
 
 
