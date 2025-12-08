@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #141414;
+    color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e50914;
+    text-decoration: none;
+}
+
+.login-box {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 60px 40px;
+    border-radius: 8px;
+}
+
+.login-box h2 {
+    margin-bottom: 28px;
+    font-size: 2rem;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #8c8c8c;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px;
+    background: #333;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    outline: none;
+    background: #444;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background: #f40612;
+}
+
+.signup-link {
+    margin-top: 16px;
+    text-align: center;
+    color: #8c8c8c;
+}
+
+.signup-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.bold-signup {
+    font-weight: bold;
+    color: white !important;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.logo-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+/* Fix signup form layout */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Password container for signup */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 50px;
+    box-sizing: border-box;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #e50914;
+}
+
+/* Remove bullets from password requirements */
+.password-requirements ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.password-requirements li {
+    color: #8c8c8c;
+    font-size: 13px;
+    margin: 5px 0;
+    padding-left: 0;
+}
+
+/* Remove any bullet characters */
+.password-requirements li:before {
+    content: "" !important;
+}
+
+.password-requirements li.valid {
+    color: #4CAF50;
+}
+
+.password-requirements li.valid:before {
+    content: "✓";
+    color: #4CAF50;
+}
+
+/* Password strength meter */
+.password-strength {
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    margin: 8px 0;
+    overflow: hidden;
+}
+
+.password-strength-meter {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s;
+}
+
+/* Password match indicator */
+.password-match {
+    font-size: 12px;
+    margin-top: 8px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.password-match.valid {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.password-match.invalid {
+    color: #f44336;
+    background: rgba(244, 67, 54, 0.1);
+}
+
+/* Make sure all inputs are same width */
+.input-group input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix form container */
+.login-box {
+    overflow: visible;
+}
+
+/* Center the form title */
+.login-box h2 {
+    text-align: center;
+}
+
+body {
+    height: auto;
+    padding: 10px 0;
+}
+
+.container {
+    padding: 10px;
+}
+
+.login-box {
+    padding: 40px 30px;
+}
+
+.input-group {
+    margin-bottom: 12px;
+}
+
+.auth-btn {
+    margin-top: 15px;
+    padding: 14px;
+}
+
+.signup-link {
+    margin-top: 12px;
+}
