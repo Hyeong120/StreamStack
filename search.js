@@ -1,6 +1,5 @@
 import ben, { searchfunc } from "./searchmodule.js"
 let allMovies = [];
-let currentResults = [];
 let currentPage = 1;
 const resultsPerPage = 12;
 let selectedMovie = null;
@@ -64,7 +63,7 @@ function performSearch(searchTerm = "") {
 }
 
 // Display results
-function displayResults() {
+function displayResults(currentResults) {
     const resultsGrid = document.getElementById('resultsGrid');
     const loadMoreBtn = document.getElementById('loadMore');
     
