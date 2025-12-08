@@ -216,10 +216,10 @@ function updateResultsInfo(query, currentResults) {
         text = `No results found for "${query}"`;
     } else if (query) {
         text = `${reslength} results for "${query}"`;
-        if (genres && genres !== 'all') {
+        if (genres && genres.length !== 0) {
             text += ` in ${genres}`;
         }
-    } else if (genres && genres !== 'all') {
+    } else if (genres && genres.length !== 0) {
         text = `${reslength} ${genres} movies`;
     } else {
         text = `${reslength} movies`;
