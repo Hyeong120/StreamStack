@@ -42,8 +42,8 @@ async function loadMovies() {
 // Perform search
 async function performSearch(searchTerm = "") {
     query = searchTerm || document.getElementById('searchInput').value.trim();
-    const currentResults = searchfunc(query,genres,sortBy,allMovies);
     console.log(query,genres,sortBy)
+    const currentResults = await searchfunc(query,genres,sortBy,allMovies);
     currentPage = 1;
     displayResults(currentResults);
     updateResultsInfo(query, currentResults);
