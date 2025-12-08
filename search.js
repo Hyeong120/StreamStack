@@ -13,8 +13,10 @@ let selectedMovie = null;
 let query = "";
 
 // Load movies when page loads
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', () => {
+  setTimeout(() => {
     loadMovies();
+  }, 100); // small delay to let UI settle
 });
 
 // Load movies from JSON file
