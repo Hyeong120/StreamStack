@@ -43,7 +43,6 @@ function performSearch(searchTerm = "") {
 }
 
 function performSort() {
-    query = searchTerm
     const res = searchfunc(query,genres,sortBy);
     currentPage = 1;
     displayResults(res);
