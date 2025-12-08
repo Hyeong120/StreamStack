@@ -44,7 +44,6 @@ function performSearch(searchTerm = "") {
 
 function performSort() {
     const res = searchfunc(query,genres,sortBy);
-    currentPage = 1;
     displayResults(res);
     updateResultsInfo(query, currentResults);
 }
