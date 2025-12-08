@@ -317,12 +317,12 @@ sortList.forEach(checkbox => {
     });
 })
 
-loadbtn.addEventListener("click", function() {
+searchbtn.addEventListener("click", function() {
     performSearch();
 })
 
 
-searchbtn.addEventListener("click", function() {
+loadbtn.addEventListener("click", function() {
     loadMoreResults();
 })
 // Handle search input Enter key
