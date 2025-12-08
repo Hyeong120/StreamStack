@@ -17,8 +17,8 @@
         <div class="search-header">
             <a href="main-movie-page.html" class="back-button">← Back to Browse</a>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search movies..." class="search-input" oninput="addSuggestions()">
-                <button onclick="performSearch()" class="search-btn">Search</button>
+                <input type="text" id="searchInput" placeholder="Search movies..." class="search-input">
+                <button id="search-btn" class="search-btn">Search</button>
             </div>
         </div>
 
@@ -35,11 +35,11 @@
         <div class="filter-box"></div>
 
         <ul class="SortFilter">
-           <li><input type="radio" name="sort" id="sort-relevance" value="relevance" hidden onchange="sortResults(this)"><label for="sort-relevance">Relevance</label></li>
-            <li><input type="radio" name="sort" id="sort-year-new" value="year" hidden onchange="sortResults(this)"><label for="sort-year-new">Year (Newest)</label></li>
-            <li><input type="radio" name="sort" id="sort-year-old" value="year_old" hidden onchange="sortResults(this)"><label for="sort-year-old">Year (Oldest)</label></li>
-            <li><input type="radio" name="sort" id="sort-rating" value="rating" hidden onchange="sortResults(this)"><label for="sort-rating">Rating</label></li>
-            <li><input type="radio" name="sort" id="sort-title" value="title" hidden onchange="sortResults(this)"><label for="sort-title">Title A-Z</label></li>
+           <li><input type="radio" name="sort" id="sort-relevance" value="relevance" hidden><label for="sort-relevance">Relevance</label></li>
+            <li><input type="radio" name="sort" id="sort-year-new" value="year" hidden><label for="sort-year-new">Year (Newest)</label></li>
+            <li><input type="radio" name="sort" id="sort-year-old" value="year_old" hidden><label for="sort-year-old">Year (Oldest)</label></li>
+            <li><input type="radio" name="sort" id="sort-rating" value="rating" hidden><label for="sort-rating">Rating</label></li>
+            <li><input type="radio" name="sort" id="sort-title" value="title" hidden><label for="sort-title">Title A-Z</label></li>
         </ul>
         </ul>
     </div>
@@ -55,90 +55,27 @@
             <li><input type="checkbox" id="g-biography" value="Biography" hidden><label for="g-biography">Biography</label></li>
             <li><input type="checkbox" id="g-comedy" value="Comedy" hidden><label for="g-comedy">Comedy</label></li>
             <li><input type="checkbox" id="g-crime" value="Crime" hidden><label for="g-crime">Crime</label></li>
-              <li>
-                            <input type="checkbox" id="g-documentary" value="Documentary" hidden>
-                            <label for="g-documentary">Documentary</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-drama" value="Drama" hidden>
-                            <label for="g-drama">Drama</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-family" value="Family" hidden>
-                            <label for="g-family">Family</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-fantasy" value="Fantasy" hidden>
-                            <label for="g-fantasy">Fantasy</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-filmnoir" value="Film-Noir" hidden>
-                            <label for="g-filmnoir">Film-Noir</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-gameshow" value="Game-Show" hidden>
-                            <label for="g-gameshow">Game-Show</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-history" value="History" hidden>
-                            <label for="g-history">History</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-horror" value="Horror" hidden>
-                            <label for="g-horror">Horror</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-music" value="Music" hidden>
-                            <label for="g-music">Music</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-musical" value="Musical" hidden>
-                            <label for="g-musical">Musical</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-mystery" value="Mystery" hidden>
-                            <label for="g-mystery">Mystery</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-news" value="News" hidden>
-                            <label for="g-news">News</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-reality" value="Reality-TV" hidden>
-                            <label for="g-reality">Reality-TV</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-romance" value="Romance" hidden>
-                            <label for="g-romance">Romance</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-scifi" value="Sci-Fi" hidden>
-                            <label for="g-scifi">Sci-Fi</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-short" value="Short" hidden>
-                            <label for="g-short">Short</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-sport" value="Sport" hidden>
-                            <label for="g-sport">Sport</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-talkshow" value="Talk-Show" hidden>
-                            <label for="g-talkshow">Talk-Show</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-thriller" value="Thriller" hidden>
-                            <label for="g-thriller">Thriller</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-war" value="War" hidden>
-                            <label for="g-war">War</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="g-western" value="Western" hidden>
-                            <label for="g-western">Western</label>
-                        </li>
+            <li><input type="checkbox" id="g-documentary" value="Documentary" hidden><label for="g-documentary">Documentary</label></li>
+            <li><input type="checkbox" id="g-drama" value="Drama" hidden><label for="g-drama">Drama</label></li>
+            <li><input type="checkbox" id="g-family" value="Family" hidden><label for="g-family">Family</label></li>
+            <li><input type="checkbox" id="g-fantasy" value="Fantasy" hidden><label for="g-fantasy">Fantasy</label></li>
+            <li><input type="checkbox" id="g-filmnoir" value="Film-Noir" hidden><label for="g-filmnoir">Film-Noir</label></li>
+            <li><input type="checkbox" id="g-gameshow" value="Game-Show" hidden><label for="g-gameshow">Game-Show</label></li>
+            <li><input type="checkbox" id="g-history" value="History" hidden><label for="g-history">History</label></li>
+            <li><input type="checkbox" id="g-horror" value="Horror" hidden><label for="g-horror">Horror</label></li>
+            <li><input type="checkbox" id="g-music" value="Music" hidden><label for="g-music">Music</label></li>
+            <li><input type="checkbox" id="g-musical" value="Musical" hidden><label for="g-musical">Musical</label></li>
+            <li><input type="checkbox" id="g-mystery" value="Mystery" hidden><label for="g-mystery">Mystery</label></li>
+            <li><input type="checkbox" id="g-news" value="News" hidden><label for="g-news">News</label></li>
+            <li><input type="checkbox" id="g-reality" value="Reality-TV" hidden><label for="g-reality">Reality-TV</label></li>
+            <li><input type="checkbox" id="g-romance" value="Romance" hidden><label for="g-romance">Romance</label></li>
+            <li><input type="checkbox" id="g-scifi" value="Sci-Fi" hidden><label for="g-scifi">Sci-Fi</label></li>
+            <li><input type="checkbox" id="g-short" value="Short" hidden><label for="g-short">Short</label></li>
+            <li><input type="checkbox" id="g-sport" value="Sport" hidden><label for="g-sport">Sport</label></li>
+            <li><input type="checkbox" id="g-talkshow" value="Talk-Show" hidden><label for="g-talkshow">Talk-Show</label></li>
+            <li><input type="checkbox" id="g-thriller" value="Thriller" hidden><label for="g-thriller">Thriller</label></li>
+            <li><input type="checkbox" id="g-war" value="War" hidden><label for="g-war">War</label></li>
+            <li><input type="checkbox" id="g-western" value="Western" hidden><label for="g-western">Western</label></li>
         </ul>
     </div>
 
@@ -169,7 +106,7 @@
                 </div>
 
                 <div class="load-more" id="loadMore" style="display: none;">
-                    <button onclick="loadMoreResults()" class="load-more-btn">Load More Results</button>
+                    <button id="load-more-btn" class="load-more-btn">Load More Results</button>
                 </div>
             </div>
         </div>
