@@ -61,7 +61,7 @@ async function sorta(sort,result,ss) {
   return bb
 }
 
-async function searchfunc(serch, BS, sort, jsonData, Amount){
+async function searchfunc(serch, BS, sort, jsonData){
   let result;
   const arr = BS
   const res = jsonData.filter(n => arr.every(genreArray => n.genre.includes(genreArray)))
@@ -73,6 +73,7 @@ async function searchfunc(serch, BS, sort, jsonData, Amount){
 
 export default ben
 export { searchfunc }
+
 
 
 
