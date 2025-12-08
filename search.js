@@ -13,11 +13,13 @@ let selectedMovie = null;
 let query = "";
 
 // Load movies when page loads
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    loadMovies();
-  }, 100); // small delay to let UI settle
-});
+function onLoad() {
+    loadMovies().then(() => {
+        // Remove the event listener after loadMovies finishes
+        document.removeEventListener('DOMContentLoaded', onLoad);
+    });
+}
+document.addEventListener('DOMContentLoaded', onLoad);
 
 // Load movies from JSON file
 async function loadMovies() {
