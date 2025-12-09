@@ -471,6 +471,7 @@ function scrollto(elementtarget){
 
 async function loadMovies() {
     const maxnum = 15;
+    console.log(allMovies);
     let curmov = allMovies.slice(0,maxnum);
     let seemore = document.getElementById('top-movies-row').innerHTML;
     document.getElementById('top-movies-row').innerHTML = ``;
@@ -628,7 +629,8 @@ async function loadMovies() {
     });
     document.getElementById('newest-movies-row').innerHTML += seemore;
 
-}
+};
 
 
-loadMovies()
+loadMovies();
+
