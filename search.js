@@ -161,7 +161,7 @@ function showMovieDetails(movie) {
             </div>
         </div>
     `;
-    const watchlistBtn = container.querySelector(".watchlist-btn").addEventListener("click", () => {
+    const watchlistBtn = document.querySelector(".watchlist-btn").addEventListener("click", () => {
     addToWatchlist(movie.id, movie.title);
     });
     // Highlight selected card
