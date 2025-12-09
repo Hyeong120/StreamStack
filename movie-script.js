@@ -123,10 +123,12 @@ document.getElementById('mainSearchInput').addEventListener('keypress', function
     if (e.key === 'Enter') {
         let val = 'Search.html?search' + document.getElementById('mainSearchInput').value;
             selectedGenres.forEach(element => {
-                    val += 'genre' + element
+                    val += 'genre' + element;
             });
+            window.location.href = val;
     }
 });
+
 
 
 
