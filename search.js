@@ -155,7 +155,7 @@ function showMovieDetails(movie) {
                 <div class="selected-genres">${genresText}</div>
                 <p class="selected-description">${movie.synopsis || 'No synopsis available.'}</p>
                 <div class="selected-actions">
-                    <button class="play-btn" onclick="window.location.href='Movie_Play.html?title=${movie.id}'">▶ Play</button>
+                    <button class="play-btn" onclick="window.location.href='Movie_Play.html?id=${movie.id}'">▶ Play</button>
                     <button class="watchlist-btn">+ Watchlist</button>
                 </div>
             </div>
