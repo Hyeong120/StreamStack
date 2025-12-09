@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const ids = params.get("id");
+let selectedGenres = [];
 
 async function loadMovies() {
         const response = await fetch('https://raw.githubusercontent.com/Bentelador/movie-bai/refs/heads/main/MDB.json');
@@ -100,7 +101,7 @@ function closeAllPanels() {
 
 // Filter functionality
 function applyGenreFilter() {
-    const selectedGenres = [];
+    selectedGenres = [];
     const checkboxes = document.querySelectorAll('.genre-checkbox input:checked');
     
     checkboxes.forEach(checkbox => {
@@ -117,6 +118,16 @@ function applyGenreFilter() {
     closeAllPanels();
 }
 
+
+
+document.getElementById('mainSearchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        let val = 'Search.html?search' + document.getElementById('mainSearchInput').value;
+            selectedGenres.forEach(element => {
+                    val += 'genre' + element
+            });
+    }
+});
 
 
 
