@@ -155,13 +155,15 @@ function showMovieDetails(movie) {
                 <div class="selected-genres">${genresText}</div>
                 <p class="selected-description">${movie.synopsis || 'No synopsis available.'}</p>
                 <div class="selected-actions">
-                    <button class="play-btn" onclick="playMovie('${movie.title}')">▶ Play</button>
-                    <button class="watchlist-btn" onclick="addToWatchlist('${movie.id}', '${movie.title}')">+ Watchlist</button>
+                    <button class="play-btn" onclick="window.location.href='Movie_Play.html?title=${movie.id}'">▶ Play</button>
+                    <button class="watchlist-btn">+ Watchlist</button>
                 </div>
             </div>
         </div>
     `;
-    
+    const watchlistBtn = container.querySelector(".watchlist-btn").addEventListener("click", () => {
+    addToWatchlist(movie.id, movie.title);
+    };
     // Highlight selected card
     document.querySelectorAll('.movie-card').forEach(card => {
         card.classList.remove('selected');
