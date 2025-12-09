@@ -508,6 +508,7 @@ body {
     height: 300px;
     position: relative;
     min-width: 210px;
+    max-width: 210px;
     border-radius: 20px;
     overflow: hidden;
     flex-shrink: 0;
@@ -954,3 +955,4 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     border-left: 4px solid #e50914;
 }
+
