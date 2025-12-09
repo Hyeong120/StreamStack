@@ -1,6 +1,6 @@
 // Panel toggle functions
 let selectedGenres = [];
-const mainMovs = [{id: "tt1160419", "title": "Dune: Part One", "year": 2021, "synopsis": "Paul Atreides arrives on Arrakis after his father accepts the stewardship of the dangerous planet. However, chaos ensues after a betrayal as forces clash to control melange, a precious resource.", "genre": ["Action", "Adventure", "Drama"], "runtime": 9300, "rating": 8, "image": "https://m.media-amazon.com/images/M/MV5BOTEwYWFjYmItZWJmNi00MGExLWI1MjktYzRiYjJkNzhiMWIxXkEyXkFqcGdeQXNuZXNodQ@@._V1_.jpg"}];
+const mainMovs = [{titleimg = "https://upload.wikimedia.org/wikipedia/commons/4/44/Dune_2021_transparent_logo.png",id: "tt1160419", "title": "Dune: Part One", "year": 2021, "synopsis": "Paul Atreides arrives on Arrakis after his father accepts the stewardship of the dangerous planet. However, chaos ensues after a betrayal as forces clash to control melange, a precious resource.", "genre": ["Action", "Adventure", "Drama"], "runtime": 9300, "rating": 8, "image": "https://m.media-amazon.com/images/M/MV5BOTEwYWFjYmItZWJmNi00MGExLWI1MjktYzRiYjJkNzhiMWIxXkEyXkFqcGdeQXNuZXNodQ@@._V1_.jpg"}];
 function toggleFilterPanel() {
     const filterPanel = document.getElementById('filterPanel');
     const overlay = document.querySelector('.overlay') || createOverlay();
@@ -478,7 +478,7 @@ async function loadMovies() {
     const Main = document.getElementById('hero');
         document.getElementById('hero').innerHTML = `
                 <div class="hero-content">
-                    <h1 class="movie-title">${mainMovs[0].title}</h1>
+                    <h1 class="movie-title"><img src="${mainMovs[0].titleimg}" class="title-img"></h1>
                     <p class="movie-description">${mainMovs[0].synopsis}</p>
                     <div class="movie-meta">
                         <span class="year">${mainMovs[0].year}</span>
@@ -657,6 +657,7 @@ async function loadMovies() {
 
 
 loadMovies();
+
 
 
 
