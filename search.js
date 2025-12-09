@@ -29,11 +29,22 @@ async function loadMovies() {
     
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get('search');
-    
-    if (searchQuery) {
+    const searchGenre = urlParams.getAll('genre');
+
+    if (genre) {
+        searchGenre.forEach(element => {
+            console.log(element)
+            genres.push(element)
+        })
+        query = document.getElementById('searchInput').value;
+        const currentResults = await searchfunc(query,genres,"relevance",allMovies);
+        currentPage = 1;
+        displayResults(currentResults);
+        updateResultsInfo(query, currentResults);
+    } else{
         document.getElementById('searchInput').value = searchQuery;
         query = searchQuery
-        const OutsideSearch = await ben(searchQuery, "relevance", allMovies);
+        const OutsideSearch = await ben(searchQuery, "relevance", allMovies,);
         displayResults(OutsideSearch);
         updateResultsInfo(searchQuery,OutsideSearch);
     }
