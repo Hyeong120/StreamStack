@@ -1,5 +1,6 @@
 // Panel toggle functions
 let selectedGenres = [];
+const mainMovs = [{id: "tt1160419", "title": "Dune: Part One", "year": 2021, "synopsis": "Paul Atreides arrives on Arrakis after his father accepts the stewardship of the dangerous planet. However, chaos ensues after a betrayal as forces clash to control melange, a precious resource.", "genre": ["Action", "Adventure", "Drama"], "runtime": 9300, "rating": 8, "image": "https://m.media-amazon.com/images/M/MV5BOTEwYWFjYmItZWJmNi00MGExLWI1MjktYzRiYjJkNzhiMWIxXkEyXkFqcGdeQXNuZXNodQ@@._V1_.jpg"}];
 function toggleFilterPanel() {
     const filterPanel = document.getElementById('filterPanel');
     const overlay = document.querySelector('.overlay') || createOverlay();
@@ -635,6 +636,7 @@ async function loadMovies() {
 
 
 loadMovies();
+
 
 
 
