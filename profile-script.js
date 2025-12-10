@@ -15,6 +15,34 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeEventListeners();
 });
 
+
+
+function addmovie(buns) {
+    console.log(buns)
+    document.getElementbyId('act-list').innerHTML = `<div class="activity-item">
+                        <div class="activity-poster">🎬</div>
+                        <div class="activity-info">
+                            <div class="activity-title">Movie Title 1</div>
+                            <div class="activity-time">Watched 2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-poster">🎬</div>
+                        <div class="activity-info">
+                            <div class="activity-title">Movie Title 2</div>
+                            <div class="activity-time">Watched 1 day ago</div>
+                        </div>
+                    </div>`
+}
+
+function loadWatchlist() {
+    // Load from localStorage
+    const savedWatchlist = localStorage.getItem('userWatchlist');
+    const userWatchlist = savedWatchlist ? JSON.parse(savedWatchlist) : [];
+    
+    addmovie(userWatchlist);
+}
+
 function loadUserData() {
     const userEmail = localStorage.getItem('userEmail');
     const userFullName = localStorage.getItem('userFullName') || 'User Name';
@@ -61,6 +89,7 @@ function updateProfileStats() {
         moviesWatched,
         inWatchlist
     }));
+    loadWatchlist()
 }
 
 // ===== PROFILE PANEL FUNCTIONALITY =====
@@ -397,4 +426,5 @@ function showToast(message) {
     setTimeout(() => {
         toast.remove();
     }, 3000);
+
 }
