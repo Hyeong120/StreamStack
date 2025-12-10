@@ -523,7 +523,7 @@ async function loadMovies() {
     document.getElementById('top-movies-row').innerHTML += seemore;
 
 
-    const maxStartIndex = allMovies.length - 5; // make sure we have 5 elements
+    const maxStartIndex = allMovies.length - maxnum; // make sure we have 5 elements
 
         // Generate random start index
         const randomStart = Math.floor(Math.random() * (maxStartIndex + 1));
@@ -665,6 +665,7 @@ async function loadMovies() {
 
 
 loadMovies();
+
 
 
 
