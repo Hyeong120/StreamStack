@@ -16,9 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function addmovie(buns) {
     console.log(buns)
-    document.getElementById('act-list').innerHTML = `
-
-     <div class="activity-item">
+    document.getElementById('act-list').innerHTML = `<div class="activity-item">
                         <div class="activity-poster"><img class="activity-poster" src="${buns[0].image}"></div>
                         <div class="activity-info">
                             <<div class="activity-title">${buns[0].title}</div>
@@ -293,6 +291,7 @@ function showToast(message) {
     }, 3000);
 
 }
+
 
 
 
