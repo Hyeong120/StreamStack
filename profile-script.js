@@ -27,7 +27,7 @@ function addmovie(buns) {
                         </div>
                     </div>
                     <div class="activity-item">
-                        <img class="activity-poster" src="${buns[0].image}">
+                        <img class="activity-poster" src="${buns[1].image}">
                         <div class="activity-info">
                             <div class="activity-title">${buns[1].title}</div>
                             <div class="activity-time">Watched 1 day ago</div>
@@ -428,3 +428,4 @@ function showToast(message) {
     }, 3000);
 
 }
+
