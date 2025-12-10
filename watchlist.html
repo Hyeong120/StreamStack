@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Watchlist - StreamFlix</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main-page.css">
+    <link rel="stylesheet" href="watchlist-style.css">
+</head>
+<body>
+    <!-- Header (same as main page) -->
+    <div class="main-header">
+        <div class="header-left">
+            <img src="logo.png" alt="StreamStack Logo" class="logo-image">
+            <div class="logo">StreamStack</div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="text" class="search-bar" id="mainSearchInput" placeholder="Search movies...">
+                <div class="search-suggestions" id="searchSuggestions"></div>
+            </div>
+        </div> <!-- CLOSE header-center -->
+        
+        <div class="header-controls">
+            <div class="profile-icon" onclick="toggleProfilePanel()">
+                <div class="profile-avatar">U</div>
+            </div>
+        </div>
+    </div> <!-- CLOSE main-header -->
+
+    <!-- Profile Panel -->
+    <div class="profile-panel" id="profilePanel">
+        <div class="profile-header">
+            <button class="close-profile" onclick="toggleProfilePanel()">×</button>
+            <h2>Account</h2>
+        </div>
+        <div class="profile-content">
+            <div class="user-info">
+                <div class="user-avatar">U</div>
+                <div class="user-details">
+                    <h3 class="user-name" id="panelUserName">User Name</h3>
+                    <p class="user-email" id="panelUserEmail">user@email.com</p>
+                </div>
+            </div>
+            <div class="profile-menu">
+                <a href="main-movie-page.html" class="menu-item">
+                    <span class="menu-icon">🏠</span>
+                    Home    
+                </a>
+                <a href="watchlist.html" class="menu-item">
+                    <span class="menu-icon">📋</span>
+                    My Watchlist
+                </a>
+                <a href="profile.html" class="menu-item">
+                    <span class="menu-icon">👤</span>
+                    Account Information
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <span class="menu-icon">⚙️</span>
+                    Settings
+                </a>
+                <div class="menu-divider"></div>
+                <a href="login.html" class="menu-item logout" onclick="logout()">
+                    <span class="menu-icon">🚪</span>
+                    Sign Out
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Watchlist Content -->
+    <div class="watchlist-container">
+        <div class="watchlist-header">
+            <h1>My Watchlist</h1>
+            <div class="watchlist-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalMovies">0</span>
+                    <span class="stat-label">Total Movies</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="completedCount">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="watchingCount">0</span>
+                    <span class="stat-label">Watching</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Filters -->
+        <div class="status-filters">
+            <button class="status-filter active" data-status="all">All</button>
+            <button class="status-filter" data-status="watching">
+                <span class="status-dot watching"></span>
+                Watching
+            </button>
+            <button class="status-filter" data-status="completed">
+                <span class="status-dot completed"></span>
+                Completed
+            </button>
+            <button class="status-filter" data-status="on-hold">
+                <span class="status-dot on-hold"></span>
+                On Hold
+            </button>
+            <button class="status-filter" data-status="plan-to-watch">
+                <span class="status-dot plan-to-watch"></span>
+                Plan to Watch
+            </button>
+            <button class="status-filter" data-status="dropped">
+                <span class="status-dot dropped"></span>
+                Dropped
+            </button>
+        </div>
+
+        <!-- Watchlist Grid -->
+        <div class="watchlist-grid" id="watchlistGrid">
+            <!-- Movies will be loaded here -->
+        </div>
+
+        <div class="empty-watchlist" id="emptyWatchlist" style="display: none;">
+            <div class="empty-state">
+                <h2>Your watchlist is empty</h2>
+                <p>Start adding movies to track your progress!</p>
+                <button class="browse-btn" onclick="window.location.href='main-movie-page.html'">
+                    Browse Movies
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="watchlist-script.js"></script>
+    <script src="avatar-manager.js"></script>
+</body>
+</html>
