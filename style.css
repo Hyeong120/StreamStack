@@ -1,788 +1,109 @@
-/* Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
     background-color: #141414;
-    color: #ffffff;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Header Styles */
-.main-header {
-    display: flex;
-    align-items: center;
-    padding: 20px 50px;
-    background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: background 0.3s;
-    gap: 40px;
-}
-
-.main-header.scrolled {
-    background: rgba(0,0,0,0.9);
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo-placeholder {
-    width: 40px;
-    height: 40px;
-    background: #e50914;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
     color: white;
-    font-size: 14px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .logo {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
     color: #e50914;
     text-decoration: none;
 }
 
-.header-center {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex: 1;
+.login-box {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 60px 40px;
+    border-radius: 8px;
 }
 
-.search-filter {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.search-bar {
-    padding: 10px 15px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 4px;
-    color: white;
-    width: 250px;
-    font-size: 14px;
-}
-
-.search-bar::placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-.filter-icon, .profile-icon {
-    cursor: pointer;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background 0.3s;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.filter-icon:hover, .profile-icon:hover {
-    background: rgba(255,255,255,0.2);
-}
-
-.profile-avatar {
-    width: 36px;
-    height: 36px;
-    background: #e50914;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
-
-.filter-options {
-    display: flex;
-    gap: 15px;
-    margin-left: 20px;
-}
-
-.filter-option {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    cursor: pointer;
-    transition: color 0.3s;
-    padding: 5px 10px;
-    border-radius: 4px;
-}
-
-.filter-option:hover {
-    color: white;
-    background: rgba(255,255,255,0.1);
-}
-
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Filter Panel */
-.filter-panel {
-    position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 2000;
-    padding: 30px 50px;
-    transition: top .8s ease;
-    border-bottom: 2px solid #e50914;
-}
-
-.filter-panel.active {
-    top: 0;
-}
-
-.filter-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.filter-header h2 {
-    color: white;
-}
-
-.close-filter {
-    background: none;
-    border: none;
-    color: white;
+.login-box h2 {
+    margin-bottom: 28px;
     font-size: 2rem;
-    cursor: pointer;
-    padding: 5px;
 }
 
-.genres-container h3 {
-    margin-bottom: 20px;
-    color: #e50914;
+.input-group {
+    margin-bottom: 16px;
 }
 
-.genres-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin-bottom: 30px;
-    max-height: 400px;
-    overflow-y: auto;
-    padding: 10px;
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #8c8c8c;
 }
 
-.genre-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: 1px solid transparent;
+.input-group input {
+    width: 100%;
+    padding: 16px;
+    background: #333;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
 }
 
-.genre-checkbox:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.2);
+.input-group input:focus {
+    outline: none;
+    background: #444;
 }
 
-.genre-checkbox input:checked + span {
-    color: #e50914;
-    font-weight: bold;
-}
-
-.genre-checkbox input:checked ~ .genre-checkbox {
-    background: rgba(229, 9, 20, 0.1);
-    border-color: #e50914;
-}
-
-.apply-filter {
+.login-btn {
+    width: 100%;
+    padding: 16px;
     background: #e50914;
     color: white;
     border: none;
-    padding: 12px 30px;
     border-radius: 4px;
     font-size: 16px;
+    font-weight: bold;
+    margin-top: 24px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
-.apply-filter:hover {
+.login-btn:hover {
     background: #f40612;
 }
 
-/* Profile Panel */
-.profile-panel {
-    position: fixed;
-    top: 0;
-    Right: -400px;
-    width: 350px;
-    height: 100vh;
-    background: rgba(0,0,0,0.95);
-    z-index: 2000;
-    transition: Right 0.4s ease;
-    border-left: 2px solid #e50914;
+.signup-link {
+    margin-top: 16px;
+    text-align: center;
+    color: #8c8c8c;
 }
 
-.profile-panel.active {
-    Right: 0;
-}
-
-.profile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 25px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.profile-header h2 {
-    color: white;
-}
-
-.close-profile {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.profile-content {
-    padding: 20px 25px;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.user-avatar {
-    width: 60px;
-    height: 60px;
-    background: #e50914;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.user-details h3 {
-    margin-bottom: 5px;
-}
-
-.user-email {
-    color: rgba(255,255,255,0.7);
-    font-size: 14px;
-}
-
-.profile-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px;
+.signup-link a {
     color: white;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.3s;
 }
 
-.menu-item:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-.menu-icon {
-    font-size: 1.2rem;
-}
-
-.menu-divider {
-    height: 1px;
-    background: rgba(255,255,255,0.1);
-    margin: 10px 0;
-}
-
-.menu-item.logout {
-    color: #e50914;
-}
-
-/* Main Content */
-.main-content {
-    align-items: center;
-    justify-content: center;
-    padding-left: 10px;
-    display: flex;
-    margin-top: 100px;
-    flex-direction: column;
-}
-
-/* videoplayer */
-.main-watch {
-    height: 60vh;
-    width: 120vh;
-    display: flex;
-    align-items: center;
-    background-color: rgba(100, 100, 100, 0.409);
-    text-align: center; 
-    border: 0px;
-    justify-content: center;
-}
-
-.watch-content {
-    max-width: 600px;
-}
-
-
-
-.movie-meta span {
-    padding: 5px 10px;
-    background: rgba(214, 0, 0, 0.996);
-    border-radius: 4px;
-}
-
-.watch-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.play-btn, .info-btn {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
+.bold-signup {
     font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
+    color: white !important;
 }
 
-.play-btn {
-    background: white;
-    color: black;
-}
-
-.play-btn:hover {
-    background: rgba(255,255,255,0.8);
-}
-
-.info-btn {
-    background: rgba(255,255,255,0.2);
-    color: white;
-}
-
-.info-btn:hover {
-    background: rgba(255,255,255,0.3);
-}
-
-.thumb-desc-container{
-    display: flex;
-    height: 610px;
-    width: 120vh;
-    display: flex;
-    padding: 0 50px;
-    align-items: center;
-    background-color: rgba(89, 89, 89, 0.2);
-    border-radius: 0px 0px 30px 30px; 
-    justify-content: start;
-    overflow: auto;
-}
-
-.thumbnail-container{
-    height: 80%;
-    width: 30%;
-    background-color: white;
-    border-radius: 10px;
-    display: flex;
-    color: black;
-    justify-content: center;
-    align-items: center;
-}
-
-.thumbnail{
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.title-desc {
-    display: flex;
-    flex-direction: column;
-    align-self: start;
-    margin-top: 10vh;
-    margin-left: 7vh;
-    inline-size: 600px;
-    overflow-wrap: break-word;
-}
-
-.desc{
-    margin-top: -30px;
-    inline-size: 600px;
-    overflow-wrap: break-word;
-    
-}
-
-.li-datas{
-    display: flex;
-    flex-direction: row;
-    margin-top: 7vh;
-    margin-left: 1.5vh;
-    font-size: 20px;
-}
-
-
-/* Content Sections */
-.content-section {
-    padding: 50px 90px;
-    justify-content: center;
-    background: linear-gradient(to bottom, #2e2e2e00, #000000);
-    align-items: center;
-
-}
-.section-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    color: rgba(255, 255, 255, 0.53);
-     
-}
-
-.section-header h2 {
-    font-size: 1.5rem;
-}
-
-
-/* Movie Rows */
-/* Netflix-style Movie Rows */
-.movie-row-container {
-    display: flex;
-    overflow: visible;
-    position: relative;
-    justify-content: center;
-
-}
-
-.movie-row {
-    display: flex;
-    gap: 8px;
-    transition: transform 0.4s ease;
-    width: max-content;
-    padding: 20px 0;
-}
-
-/* Netflix Movie Card */
-.netflix-movie-card {
-    height: 300px;
-    position: relative;
-    min-width: 210px;
-    max-width: 210px;
-    border-radius: 20px;
-    overflow: hidden;
-    flex-shrink: 0;
-    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform-origin: center bottom;
-    cursor: pointer;
-    justify-content: space-evenly;
-    margin: 10px;
-}
-
-.netflix-movie-poster {
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(135deg, #e50914, #b81d24);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    position: relative;
-}
-
-/* Title overlay (appears by default) */
-.netflix-movie-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    color: white;
-    padding: 40px 10px 10px 10px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    opacity: 1;
-    transition: all 0.3s ease;
-}
-
-/* Hover State - Card expands and shows actions */
-.netflix-movie-card:hover {
-    transform: scale(1.1);
-    z-index: 10000;
-    box-shadow: 0 40px 30px rgba(0,0,0,0.8);
-}
-
-.netflix-movie-card:hover .netflix-movie-title{
-    opacity: 0;
-}
-
-/* Action buttons that slide up on hover */
-.netflix-movie-actions {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent 10%, rgba(20,20,5,20.95) 60%);
-    padding: 80px 15px 15px 15px;
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease 0.1s;
-}
-
-.netflix-movie-card:hover .netflix-movie-actions {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Action buttons row */
-.netflix-action-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-}
-
-.netflix-main-actions {
-    display: flex;
-    gap: 6px;
-}
-
-/* Play button */
-.netflix-play-btn {
-    background: white;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s ease;
-}
-
-.netflix-play-btn:hover {
-    background: rgba(255,255,255,0.9);
-    transform: scale(1.1);
-}
-
-
-/* Info button */
-.netflix-info-btn {
-    background: rgba(42, 42, 42, 0.8);
-    border: 2px solid rgba(255,255,255,0.4);
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.1rem;
-    color: white;
-    margin-left: auto;
-    transition: all 0.2s ease;
-}
-
-.netflix-info-btn:hover {
-    border-color: white;
-    background: rgba(42, 42, 42, 0.9);
-    transform: scale(1.1);
-}
-
-/* Movie info on hover */
-.netflix-movie-info {
-    color: white;
-    font-size: 0.8rem;
-}
-
-.netflix-movie-match {
-    color: #46d369;
-    font-weight: bold;
-    font-size: 0.8rem;
-    margin-bottom: 5px;
-}
-
-.netflix-movie-genres {
-    color: #a3a3a3;
-    font-size: 0.75rem;
-    margin-bottom: 8px;
-}
-
-/* Status indicators */
-.netflix-hd-badge {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    border: 1px solid rgba(255,255,255,0.3);
-}
-
-/* Overlay for when panels are open */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    z-index: 1500;
-    display: none;
-}
-
-.overlay.active {
-    display: block;
-}
-
-/* Search button for main page */
-.search-btn-main {
-    background: #e50914;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-    white-space: nowrap;
-}
-
-.search-btn-main:hover {
-    background: #f40612;
-}
-
-/* Update search filter layout */
-.search-filter {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.search-bar {
-    padding: 10px 15px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 4px;
-    color: white;
-    width: 250px;
-    font-size: 14px;
-}
-
-/* Search container for suggestions */
-.search-container {
-    position: relative;
-    display: flex;
-    flex: 1;
-}
-
-.search-suggestions {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.95);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 4px;
-    margin-top: 5px;
-    max-height: 300px;
-    overflow-y: auto;
-    display: none;
-    z-index: 1000;
-}
-
-.search-suggestion {
-    padding: 12px 15px;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background 0.3s;
-}
-
-.search-suggestion:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-.search-suggestion:last-child {
-    border-bottom: none;
-}
-
-.suggestion-poster {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(45deg, #e50914, #b81d24);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-}
-
-.suggestion-info {
-    flex: 1;
-}
-
-.suggestion-title {
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin-bottom: 2px;
-}
-
-.suggestion-details {
-    color: #8c8c8c;
-    font-size: 0.8rem;
-}
-
-.search-suggestions.active {
-    display: block;
+.signup-link a:hover {
+    text-decoration: underline;
 }
 
 .logo-image {
@@ -791,167 +112,140 @@ body {
     border-radius: 4px;
 }
 
-/* Watchlist Modal */
-.watchlist-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Fix signup form layout */
+.input-group {
+    margin-bottom: 20px;
 }
 
-.modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
+/* Password container for signup */
+.password-container {
     position: relative;
-    background: #181818;
-    border-radius: 8px;
-    padding: 0;
-    max-width: 400px;
-    width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    border: 1px solid #333;
+    width: 100%;
 }
 
-.modal-header {
-    padding: 20px;
-    border-bottom: 1px solid #333;
-    position: relative;
+.password-container input {
+    width: 100%;
+    padding-right: 50px;
+    box-sizing: border-box;
 }
 
-.modal-header h3 {
-    color: #fff;
-    margin-bottom: 5px;
-    font-size: 1.2rem;
-}
-
-.modal-header p {
-    color: #e50914;
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin: 0;
-}
-
-.modal-close {
+.toggle-password {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     background: none;
     border: none;
-    color: #fff;
-    font-size: 1.5rem;
+    color: #666;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s;
+    padding: 5px;
 }
 
-.modal-close:hover {
-    background: rgba(255, 255, 255, 0.1);
+.toggle-password:hover {
+    color: #e50914;
 }
 
-/* Status Options */
-.status-options {
-    padding: 10px 0;
+/* Remove bullets from password requirements */
+.password-requirements ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
 }
 
-.status-option {
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    cursor: pointer;
-    transition: background 0.3s;
-    border-bottom: 1px solid #222;
+.password-requirements li {
+    color: #8c8c8c;
+    font-size: 13px;
+    margin: 5px 0;
+    padding-left: 0;
 }
 
-.status-option:last-child {
-    border-bottom: none;
+/* Remove any bullet characters */
+.password-requirements li:before {
+    content: "" !important;
 }
 
-.status-option:hover {
-    background: rgba(255, 255, 255, 0.05);
+.password-requirements li.valid {
+    color: #4CAF50;
 }
 
-.status-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 15px;
-    flex-shrink: 0;
+.password-requirements li.valid:before {
+    content: "✓";
+    color: #4CAF50;
 }
 
-.status-dot.watching { background: #00ff00; }
-.status-dot.completed { background: #0066ff; }
-.status-dot.on-hold { background: #ffff00; }
-.status-dot.plan-to-watch { background: #666666; }
-.status-dot.dropped { background: #ff0000; }
-
-.status-text {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1rem;
-    flex: 1;
+/* Password strength meter */
+.password-strength {
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    margin: 8px 0;
+    overflow: hidden;
 }
 
-.status-desc {
-    color: #a3a3a3;
-    font-size: 0.8rem;
-    text-align: right;
+.password-strength-meter {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s;
 }
 
-/* Modal Actions */
-.modal-actions {
-    padding: 20px;
-    border-top: 1px solid #333;
+/* Password match indicator */
+.password-match {
+    font-size: 12px;
+    margin-top: 8px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.password-match.valid {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.password-match.invalid {
+    color: #f44336;
+    background: rgba(244, 67, 54, 0.1);
+}
+
+/* Make sure all inputs are same width */
+.input-group input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix form container */
+.login-box {
+    overflow: visible;
+}
+
+/* Center the form title */
+.login-box h2 {
     text-align: center;
 }
 
-.remove-btn {
-    background: rgba(255, 0, 0, 0.2);
-    color: #ff4444;
-    border: 1px solid rgba(255, 0, 0, 0.3);
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s;
+body {
+    height: auto;
+    padding: 10px 0;
 }
 
-.remove-btn:hover {
-    background: rgba(255, 0, 0, 0.3);
-    border-color: rgba(255, 0, 0, 0.5);
+.container {
+    padding: 10px;
 }
 
-/* Status Toast */
-.status-toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #2d2d2d;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    z-index: 10001;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    border-left: 4px solid #e50914;
+.login-box {
+    padding: 40px 30px;
+}
+
+.input-group {
+    margin-bottom: 12px;
+}
+
+.auth-btn {
+    margin-top: 15px;
+    padding: 14px;
+}
+
+.signup-link {
+    margin-top: 12px;
+
 }
