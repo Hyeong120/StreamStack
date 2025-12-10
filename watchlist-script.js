@@ -102,7 +102,7 @@ function displayWatchlist(filterStatus = 'all') {
                     <span>★ ${item.rating}</span>
                 </div>
                 <div class="watchlist-actions">
-                    <select class="status-select" onchange="updateMovieStatus(${item.id}, this.value)">
+                    <select class="status-select" onchange="updateMovieStatus('${item.id}', this.value)">
                         <option value="watching" ${item.status === 'watching' ? 'selected' : ''}>Watching</option>
                         <option value="completed" ${item.status === 'completed' ? 'selected' : ''}>Completed</option>
                         <option value="on-hold" ${item.status === 'on-hold' ? 'selected' : ''}>On Hold</option>
@@ -262,4 +262,5 @@ function updateAllStats() {
         document.getElementById('inWatchlist').textContent = inWatchlist;
     }
 }
+
 
