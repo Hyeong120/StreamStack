@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function addmovie(buns) {
     console.log(buns)
     document.getElementById('act-list').innerHTML = `
-    <div class="activity-list">
                     <div class="activity-item">
                         <img class="activity-poster" src="${buns[0].image}">
                         <div class="activity-info">
@@ -31,8 +30,7 @@ function addmovie(buns) {
                             <div class="activity-title">${buns[1].title}</div>
                             <div class="activity-time">Watched 1 day ago</div>
                         </div>
-                    </div>
-                </div>`
+                    </div>`
 }
 
 function loadWatchlist() {
@@ -294,6 +292,7 @@ function showToast(message) {
     }, 3000);
 
 }
+
 
 
 
