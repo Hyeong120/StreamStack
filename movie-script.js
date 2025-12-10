@@ -67,37 +67,6 @@ async function loadMovies() {
 }
 loadMovies();
 
-function toggleFilterPanel() {
-    const filterPanel = document.getElementById('filterPanel');
-    const overlay = document.querySelector('.overlay') || createOverlay();
-    
-    filterPanel.classList.toggle('active');
-    overlay.classList.toggle('active');
-}
-
-function toggleProfilePanel() {
-    const profilePanel = document.getElementById('profilePanel');
-    const overlay = document.querySelector('.overlay') || createOverlay();
-    
-    profilePanel.classList.toggle('active');
-    overlay.classList.toggle('active');
-}
-
-function createOverlay() {
-    const overlay = document.createElement('div');
-    overlay.className = 'overlay';
-    overlay.onclick = closeAllPanels;
-    document.body.appendChild(overlay);
-    return overlay;
-}
-
-function closeAllPanels() {
-    document.getElementById('filterPanel').classList.remove('active');
-    document.getElementById('profilePanel').classList.remove('active');
-    document.querySelector('.overlay').classList.remove('active');
-}
-
-
 // Filter functionality
 function applyGenreFilter() {
     selectedGenres = [];
@@ -129,6 +98,7 @@ document.getElementById('mainSearchInput').addEventListener('keypress', function
             window.location.href = val;
     }
 });
+
 
 
 
