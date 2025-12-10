@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load user data
     loadUserData();
-
-    // Initialize search functionality
-    loadMoviesForSearch();
     
     // Initialize event listeners
     initializeEventListeners();
@@ -117,140 +114,6 @@ function closeAllPanels() {
     if (profilePanel) profilePanel.classList.remove('active');
     if (overlay) overlay.classList.remove('active');
     hideSearchSuggestions();
-}
-
-// ===== SEARCH FUNCTIONALITY =====
-let allMovies = [];
-let searchTimeout;
-
-async function loadMoviesForSearch() {
-    try {
-        const response = await fetch('movies.json');
-        allMovies = await response.json();
-    } catch (error) {
-        console.error('Error loading movies for search:', error);
-        allMovies = [
-            { id: 1, title: "Inception", year: "2010", genre: "Action, Sci-Fi", image: "🎬" },
-            { id: 2, title: "The Dark Knight", year: "2008", genre: "Action, Crime", image: "🎬" },
-            { id: 3, title: "Pulp Fiction", year: "1994", genre: "Crime, Drama", image: "🎬" }
-        ];
-    }
-}
-
-function showSearchSuggestions(query) {
-    const suggestionsContainer = document.getElementById('searchSuggestions');
-    if (!suggestionsContainer) return;
-    
-    if (!query.trim()) {
-        hideSearchSuggestions();
-        return;
-    }
-    
-    const filteredMovies = allMovies.filter(movie =>
-        movie.title.toLowerCase().includes(query.toLowerCase())
-    ).slice(0, 5);
-    
-    if (filteredMovies.length === 0) {
-        suggestionsContainer.innerHTML = `
-            <div class="search-suggestion">
-                <div class="suggestion-info">
-                    <div class="suggestion-title">No results found</div>
-                    <div class="suggestion-details">Press Enter to search for "${query}"</div>
-                </div>
-            </div>
-        `;
-    } else {
-        suggestionsContainer.innerHTML = filteredMovies.map(movie => `
-            <div class="search-suggestion" onclick="selectSuggestion('${movie.title}')">
-                <div class="suggestion-poster">${movie.image}</div>
-                <div class="suggestion-info">
-                    <div class="suggestion-title">${movie.title}</div>
-                    <div class="suggestion-details">${movie.year} • ${movie.genre}</div>
-                </div>
-            </div>
-        `).join('');
-    }
-    
-    suggestionsContainer.classList.add('active');
-}
-
-function hideSearchSuggestions() {
-    const suggestionsContainer = document.getElementById('searchSuggestions');
-    if (suggestionsContainer) {
-        suggestionsContainer.classList.remove('active');
-    }
-}
-
-function selectSuggestion(movieTitle) {
-    const searchInput = document.getElementById('mainSearchInput');
-    if (searchInput) {
-        searchInput.value = movieTitle;
-        hideSearchSuggestions();
-        performSearch();
-    }
-}
-
-function performSearch() {
-    const searchInput = document.getElementById('mainSearchInput');
-    if (!searchInput) return;
-    
-    const searchQuery = searchInput.value.trim();
-    
-    if (!searchQuery) {
-        alert('Please enter a search term');
-        return;
-    }
-    
-    window.location.href = `search-results.html?q=${encodeURIComponent(searchQuery)}`;
-}
-
-// ===== EVENT LISTENERS =====
-function initializeEventListeners() {
-    const searchInput = document.getElementById('mainSearchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', function(e) {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                showSearchSuggestions(e.target.value);
-            }, 300);
-        });
-        
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                hideSearchSuggestions();
-                performSearch();
-            }
-        });
-        
-        searchInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                hideSearchSuggestions();
-            }
-        });
-    }
-    
-    // Close suggestions when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.search-container')) {
-            hideSearchSuggestions();
-        }
-    });
-    
-    // Close panels with ESC key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeAllPanels();
-        }
-    });
-    
-    // Filter option selection
-    const filterOptions = document.querySelectorAll('.filter-option');
-    filterOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            filterOptions.forEach(opt => opt.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
 }
 
 // Logout function
@@ -428,5 +291,6 @@ function showToast(message) {
     }, 3000);
 
 }
+
 
 
