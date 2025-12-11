@@ -488,11 +488,16 @@ async function loadMovies() {
                         <button class="info-btn" onclick="showMovieInfo('${mainMovs[0].id}')">ℹ More Info</button>
                     </div>
                 `;
+    Main.style.height = "70vh";
     Main.style.backgroundImage = `
+    
     linear-gradient(to bottom, rgba(0,0,0,0) 85%, rgba(0,0,0,0.9) 100%),
     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
     url('${mainMovs[0].image}')
     `;
+    Main.style.display = "flex";
+    Main.style.alignItems = "center";
+    Main.style.padding = "0 50px";
     
     let curmov = allMovies.slice(0,maxnum);
     let seemore = document.getElementById('top-movies-row').innerHTML;
@@ -658,6 +663,7 @@ async function loadMovies() {
 
 
 loadMovies();
+
 
 
 
