@@ -267,6 +267,20 @@ function removeFromWatchlist(movieId, movieTitle,btn,isInWatchlist) {
                         data-in-watchlist="${isInWatchlist}"
                         title="Add to Watchlist">+ Watchlist
                 </button>`;
+    btn.addEventListener('click', function() {
+            const movieId = this.dataset.movieId;
+            const movieTitle = this.dataset.movieTitle;
+            let isInWatchlist = this.dataset.inWatchlist === 'true';
+        console.log(isInWatchlist);
+
+            if (isInWatchlist) {
+                removeFromWatchlist(movieId, movieTitle, this, isInWatchlist);
+                this.dataset.inWatchlist = 'true';
+            } else {
+                addToWatchlist(movieId, movieTitle, this);
+                this.dataset.inWatchlist = 'false';
+            }
+        });
     
     let userWatchlist = JSON.parse(localStorage.getItem('userWatchlist') || '[]');
     const movieIndex = userWatchlist.findIndex(item => item.id === movieId);
@@ -358,6 +372,21 @@ function addToWatchlist(movieId, movieTitle,btn,isInWatchlist) {
                         title="In Watchlist">
                    ✓ In Watchlist'
                 </button>`;
+
+    btn.addEventListener('click', function() {
+            const movieId = this.dataset.movieId;
+            const movieTitle = this.dataset.movieTitle;
+            let isInWatchlist = this.dataset.inWatchlist === 'true';
+        console.log(isInWatchlist);
+
+            if (isInWatchlist) {
+                removeFromWatchlist(movieId, movieTitle, this, isInWatchlist);
+                this.dataset.inWatchlist = 'true';
+            } else {
+                addToWatchlist(movieId, movieTitle, this);
+                this.dataset.inWatchlist = 'false';
+            }
+        });
     
     let watchlist = JSON.parse(localStorage.getItem('userWatchlist') || '[]');
     
