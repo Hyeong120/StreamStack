@@ -353,6 +353,13 @@ searchbtn.addEventListener("click", function() {
 loadbtn.addEventListener("click", function() {
     loadMoreResults();
 })
+const filterToggleBtn = document.getElementById('filterToggleBtn');
+    if (filterToggleBtn) {
+        filterToggleBtn.addEventListener('click', function() {
+            const panel = document.getElementById('filterSortPanel');
+            panel.classList.toggle('active');
+        });
+    }
 // Handle search input Enter key
 document.getElementById('searchInput').addEventListener('keydown', function(k) {
     if (k.key == 'Enter') {
