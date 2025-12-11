@@ -119,15 +119,20 @@ function updateActiveFiltersDisplay() {
             }else if (type === 'genre') {
                 selectedGenres = selectedGenres.filter(g => g !== value);
                 const checkbox = document.querySelector(`.genre-checkbox input[value="${value}"]`);
-                if (checkbox) checkbox.checked = false;
+                if (checkbox) {
+                    sortResults(checkbox,"genre")
+                    checkbox.checked = false
+                };
             } else if (type === 'sort') {
                 // Clear selected sort
                 const checkedRadio = document.querySelector('.sort-option input[type="radio"]:checked');
                 if (checkedRadio) checkedRadio.checked = false;
                 const relevance = document.querySelector('.sort-option input[value="relevance"]');
-                if (relevance) relevance.checked = true;
+                if (relevance) {
+                    relevance.checked = true
+                };
 }
-            
+            sortResults();
             updateActiveFiltersDisplay();
         });
     });
@@ -277,18 +282,15 @@ function removeFromWatchlist(movieId, movieTitle) {
 }
 
 // Sort results
-function sortResults(rad,value) {
-    if (rad.checked && value == "sort") {
-        sortBy = rad.value;
-    }
-    if (value == "genre") {
-        if (rad.checked) {
-        genres.push(rad.value);
-        } else {
-            genres = genres.filter(item => item !== rad.value);
-        }
-    }
-    
+function sortResults() {
+   genres = Array.from(genreList)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+    // Read the selected sort radio
+    const selectedSort = Array.from(sortList).find(r => r.checked);
+    sortBy = selectedSort ? selectedSort.value : "relevance";
+
     currentPage = 1;
     performSort();
 }
@@ -371,13 +373,13 @@ function addToWatchlist(movieId, movieTitle) {
 }
 genreList.forEach(checkbox => {
     checkbox.addEventListener("change", (event) => {
-        sortResults(event.target,"genre");
+        sortResults();
     });
 })
 
 sortList.forEach(checkbox => {
     checkbox.addEventListener("change", (event) => {
-        sortResults(event.target,"sort");
+        sortResults();
     });
 })
 
@@ -395,6 +397,7 @@ document.getElementById('clearFiltersBtn').addEventListener('click', function() 
     sortList.forEach(radio => {
     radio.checked = (radio.value === "relevance");
 });
+    sortResults();
 });
 
 const filterToggleBtn = document.getElementById('filterToggleBtn');
