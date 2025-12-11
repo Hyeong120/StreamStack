@@ -240,7 +240,7 @@ function createMovieCard(movie) {
     </div>
     `;
 
-    const btn = document.getElementById(`watchlist-btn${movie.id}`)
+    const btn = card.querySelector(`#watchlist-btn${movie.id}`);
     btn.addEventListener('click', function() {
             const movieId = this.dataset.movieId;
             const movieTitle = this.dataset.movieTitle;
@@ -249,39 +249,21 @@ function createMovieCard(movie) {
 
             if (isInWatchlist) {
                 removeFromWatchlist(movieId, movieTitle, this, isInWatchlist);
-                this.dataset.inWatchlist = 'true';
+                this.textContent = "✓ In Watchlist";
+                this.dataset.inWatchlist = "false";
+                this.classList.add('added');
             } else {
                 addToWatchlist(movieId, movieTitle, this);
-                this.dataset.inWatchlist = 'false';
+                this.dataset.inWatchlist = 'true';
+                this.textContent = "+ Watchlist";
+                btn.classList.remove('added');
             }
         });
     
     return card;
 }
 
-function removeFromWatchlist(movieId, movieTitle,btn,isInWatchlist) {
-    btn.outerHTML = `<button id="watchlist-btn${movieId}"
-                        class="watchlist-btn"
-                        data-movie-id="${movieId}"
-                        data-movie-title="${movieTitle}"
-                        data-in-watchlist="${isInWatchlist}"
-                        title="Add to Watchlist">+ Watchlist
-                </button>`;
-    const btna = document.getElementById(`watchlist-btn${movieId}`)
-    btna.addEventListener('click', function() {
-            const movieId = this.dataset.movieId;
-            const movieTitle = this.dataset.movieTitle;
-            let isInWatchlist = this.dataset.inWatchlist === 'true';
-        console.log(isInWatchlist);
-
-            if (isInWatchlist) {
-                removeFromWatchlist(movieId, movieTitle, this, isInWatchlist);
-                this.dataset.inWatchlist = 'true';
-            } else {
-                addToWatchlist(movieId, movieTitle, this);
-                this.dataset.inWatchlist = 'false';
-            }
-        });
+function removeFromWatchlist(movieId, movieTitle) {
     
     let userWatchlist = JSON.parse(localStorage.getItem('userWatchlist') || '[]');
     const movieIndex = userWatchlist.findIndex(item => item.id === movieId);
@@ -363,33 +345,7 @@ function formatNumber(num) {
 }
 
 // Add to watchlist function
-function addToWatchlist(movieId, movieTitle,btn,isInWatchlist) {
-    // Get existing watchlist
-    btn.outerHTML = `<button id="watchlist-btn${movieId}"
-                        class="watchlist-btn added"
-                        data-movie-id="${movieId}"
-                        data-movie-title="${movieTitle}"
-                        data-in-watchlist="${isInWatchlist}"
-                        title="In Watchlist">
-                   ✓ In Watchlist
-                </button>`;
-
-    const btna = document.getElementById(`watchlist-btn${movieId}`)
-
-    btna.addEventListener('click', function() {
-            const movieId = this.dataset.movieId;
-            const movieTitle = this.dataset.movieTitle;
-            let isInWatchlist = this.dataset.inWatchlist === 'true';
-        console.log(isInWatchlist);
-
-            if (isInWatchlist) {
-                removeFromWatchlist(movieId, movieTitle, this, isInWatchlist);
-                this.dataset.inWatchlist = 'true';
-            } else {
-                addToWatchlist(movieId, movieTitle, this);
-                this.dataset.inWatchlist = 'false';
-            }
-        });
+function addToWatchlist(movieId, movieTitle) {
     
     let watchlist = JSON.parse(localStorage.getItem('userWatchlist') || '[]');
     
