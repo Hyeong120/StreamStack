@@ -487,8 +487,8 @@ body {
 
 .thumb-desc-container{
     display: flex;
-    height: 2745px;
-    width: 540vh;
+    height: 610px; 
+    width: 120vh;
     display: flex;
     padding: 0 50px;
     align-items: center;
@@ -1162,6 +1162,7 @@ body {
         width: 140vh;
     }
 }
+
 
 
 
