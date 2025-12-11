@@ -52,6 +52,8 @@ body {
 
 .flair-particle {
     position: absolute;
+    top: 0;
+    transform: translateY(100vh);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(229, 9, 20, 0.3), transparent);
     animation: particleFloat 15s infinite linear;
@@ -517,3 +519,4 @@ body {
 .modal-actions .remove-btn:hover {
     background: #b20710;
 }
+
