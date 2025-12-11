@@ -63,25 +63,10 @@ async function loadMovies() {
 }
 
 function updateActiveFiltersDisplay() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const selectedGenres = [];
-    let sort = "";
-    const checkedsort = urlParams.get('sort');
-
-            document.querySelectorAll('.sort-option input[type="radio"]').forEach(cb => {
-                 if (cb.checked) {
-                    sort = cb
-                }
-            });
-
-    document.querySelectorAll('.genre-checkbox input[type="checkbox"]').forEach(checkbox => {
-        if (checkbox.checked){
-        selectedGenres.push(checkbox.value);
-        }});
     const activeFilters = document.getElementById('activeFilters');
     if (!activeFilters) return;
     
-    if (selectedGenres.length === 0 && !query && !sort) {
+    if (genres.length === 0 && !query && !sortBy) {
         activeFilters.innerHTML = '';
         return;
     }
@@ -93,12 +78,12 @@ function updateActiveFiltersDisplay() {
                  <button class="remove-filter" data-type="search">×</button></span>`;
     }
 
-    if (sort){
+    if (sortby){
         html += `<span class="active-filter">Sort: ${sort.parentElement.querySelector('span').textContent} 
                  <button class="remove-filter" data-type="sort" data-value="${sort.value}">×</button></span>`;
     }
     
-    selectedGenres.forEach(genre => {
+    genres.forEach(genre => {
         html += `<span class="active-filter">${genre} 
                  <button class="remove-filter" data-type="genre" data-value="${genre}">×</button></span>`;
     });
@@ -112,11 +97,11 @@ function updateActiveFiltersDisplay() {
             const value = this.getAttribute('data-value');
             
             if (type === 'search') {
-                currentSearchTerm = '';
+                query = '';
                 document.getElementById('searchInput').value = '';
          
             }else if (type === 'genre') {
-                selectedGenres = selectedGenres.filter(g => g !== value);
+                genres = genres.filter(g => g !== value);
                 const checkbox = document.querySelector(`.genre-checkbox input[value="${value}"]`);
                 if (checkbox) checkbox.checked = false;
             } else if (type === 'sort') {
@@ -124,8 +109,7 @@ function updateActiveFiltersDisplay() {
                 const checkedRadio = document.querySelector('.sort-option input[type="radio"]:checked');
                 if (checkedRadio) checkedRadio.checked = false;
                 const relevance = document.querySelector('.sort-option input[value="relevance"]');
-                if (relevance) relevance.checked = true;
-}
+                if (relevance) relevance.checked = true;}
             
             updateActiveFiltersDisplay();
         });
