@@ -113,7 +113,7 @@ function updateActiveFiltersDisplay() {
             console.log(type,value)
             
             if (type === 'search') {
-                currentSearchTerm = '';
+                query = '';
                 document.getElementById('searchInput').value = '';
          
             }else if (type === 'genre') {
