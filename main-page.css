@@ -99,13 +99,13 @@ body {
     display: flex;
     align-items: center;
     padding: 20px 50px;
-    background: rgba(0,0,0,0.9);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: background 0.3s;
     gap: 40px;
+
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
 }
 
 .header-left {
@@ -1051,6 +1051,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     border-left: 4px solid #e50914;
 }
+
 
 
 
