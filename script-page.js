@@ -71,7 +71,6 @@ function applyGenreFilter() {
         return;
     }
     
-    console.log('Filtering by genres:', selectedGenres);
     alert(`Filtering movies by: ${selectedGenres.join(', ')}`);
     closeAllPanels();
 }
@@ -83,7 +82,6 @@ function seeMore(category) {
 
 // Movie player functions
 function playMovie(movieid) {
-    console.log(movieid);
     window.location.href = 'Movie_Play.html?id='+ movieid;
 }
 
@@ -526,7 +524,6 @@ async function loadMovies() {
     const num = Math.floor(Math.random() * 50) + 1;
     const numval = num * 43
     curmov = allMovies.filter(n => n.genre.includes('Action')).slice(numval, numval+maxnum);
-    console.log(curmov)
     seemore = document.getElementById('action-movies-row').innerHTML;
     document.getElementById('action-movies-row').innerHTML = ``;
     curmov.forEach(element => {
@@ -661,6 +658,7 @@ async function loadMovies() {
 
 
 loadMovies();
+
 
 
 
