@@ -211,7 +211,7 @@ function createMovieCard(movie) {
     
     card.innerHTML = `
     <div class="movie-card" data-movie-id="${movie.id}">
-        <div class="movie-poster" onclick="playMovie('${movie.id}')">
+        <div class="movie-poster" id="${movie.id}">
             <img src="${movie.image}" 
                  alt="${movie.title || 'Movie'}"
                  loading="lazy"
@@ -235,16 +235,27 @@ function createMovieCard(movie) {
                         title="${isInWatchlist ? 'In Watchlist' : 'Add to Watchlist'}">
                     ${isInWatchlist ? '✓ In Watchlist' : '+ Watchlist'}
                 </button>
-                <button id="info-btn" class="info-btn" onclick="showMovieInfo('${movie.id}')" title="More Info">
+                <button id="info-btn" class="info-btn" title="More Info">
                     Info
                 </button>
-                <button id="play-btn" class="play-btn" onclick="playMovie('${movie.id}')" title="Play Movie">
+                <button id="play-btn" class="play-btn" title="Play Movie">
                     Play
                 </button>
             </div>
         </div>
     </div>
     `;
+
+    card.querySelector(`.movie-poster`).addEventListener('click', function() {
+        playMovie('${movie.id}');
+    });
+    card.querySelector(`#info-btn`).addEventListener('click', function() {
+        showMovieInfo('${movie.id}');
+    });
+    card.querySelector(`#play-btn`).addEventListener('click', function() {
+        playMovie('${movie.id}');
+    });
+    
 
     const btn = card.querySelector(`#watchlist-btn${movie.id}`);
     btn.addEventListener('click', function() {
