@@ -249,14 +249,14 @@ function createMovieCard(movie) {
 
             if (isInWatchlist) {
                 removeFromWatchlist(movieId, movieTitle, this, isInWatchlist);
-                this.textContent = "✓ In Watchlist";
-                this.dataset.inWatchlist = "false";
-                this.classList.add('added');
-            } else {
-                addToWatchlist(movieId, movieTitle, this);
-                this.dataset.inWatchlist = 'true';
+                this.dataset.inWatchlist = 'false';
                 this.textContent = "+ Watchlist";
                 btn.classList.remove('added');
+            } else {
+                addToWatchlist(movieId, movieTitle, this);
+                this.textContent = "✓ In Watchlist";
+                this.dataset.inWatchlist = "true";
+                this.classList.add('added');
             }
         });
     
