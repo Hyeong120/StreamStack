@@ -240,7 +240,7 @@ function createMovieCard(movie) {
     </div>
     `;
 
-    const btn = card.querySelector(`.watchlist-btn${movieId}`)
+    const btn = card.querySelector(`.watchlist-btn${movie.id}`)
     btn.addEventListener('click', function() {
             const movieId = this.dataset.movieId;
             const movieTitle = this.dataset.movieTitle;
