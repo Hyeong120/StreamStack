@@ -1,6 +1,6 @@
 import ben, { searchfunc } from "./searchmodule.js"
-const genreList = document.querySelectorAll(".sort-option input[type='checkbox']");
-const sortList = document.querySelectorAll("genre-checkbox input[type='radio']");
+const genreList = document.querySelectorAll(".genre-checkbox input[type='checkbox']");
+const sortList = document.querySelectorAll(".sort-option input[type='radio']");
 const searchbtn = document.getElementById("search-btn");
 const loadbtn = document.getElementById("load-more-btn");
 
@@ -129,7 +129,6 @@ function updateActiveFiltersDisplay() {
 }
             
             updateActiveFiltersDisplay();
-            sortResults(event.target,type);
         });
     });
 }
@@ -286,9 +285,7 @@ function sortResults(rad,value) {
         if (rad.checked) {
         genres.push(rad.value);
         } else {
-            console.log(genres, rad.value)
             genres = genres.filter(item => item !== rad.value);
-            console.log(genres, rad.value)
         }
     }
     
