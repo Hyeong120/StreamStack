@@ -344,7 +344,7 @@ body {
 .hero {
     height: 70vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('https://m.media-amazon.com/images/M/MV5BZTliZDgzN2EtMTVjOC00MDBlLWIwMjktMWYyN2ZlZGYxNWRlXkEyXkFqcGdeQWFybm8@._V1_.jpg') center/cover;
+                url('https://c.tenor.com/tga0EoNOH-8AAAAd/tenor.gif') center/cover;
     display: flex;
     align-items: center;
     padding: 0 50px;
@@ -974,6 +974,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     border-left: 4px solid #e50914;
 }
+
 
 
 
