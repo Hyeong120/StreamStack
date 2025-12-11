@@ -9,7 +9,6 @@ let sortBy = "relevance";
 let genres = [];
 let currentPage = 1;
 const resultsPerPage = 12;
-let selectedMovie = null;
 let query = "";
 
 // Load movies when page loads
@@ -20,6 +19,13 @@ function onLoad() {
     });
 }
 document.addEventListener('DOMContentLoaded', onLoad);
+
+function showMovieInfo(movieId) {
+    window.open(`https://www.imdb.com/title/${movieId}`, '_blank');
+}
+function playMovie(movieId) {
+    window.location.href = `Movie_Play.html?id=${movieId}`;
+}
 
 // Load movies from JSON file
 async function loadMovies() {
@@ -75,7 +81,7 @@ function updateActiveFiltersDisplay() {
     const activeFilters = document.getElementById('activeFilters');
     if (!activeFilters) return;
     
-    if (selectedGenres.length === 0 && !currentSearchTerm && !sort) {
+    if (selectedGenres.length === 0 && !query && !sort) {
         activeFilters.innerHTML = '';
         return;
     }
@@ -215,7 +221,7 @@ function createMovieCard(movie) {
             <div class="movie-synopsis" title="${movie.synopsis}">${movie.synopsis}</div>
             <div class="movie-actions">
                 <button class="watchlist-btn ${isInWatchlist ? 'added' : ''}" 
-                        onclick="addToWatchlist('${movie.id}'${movie.title})"
+                        onclick="addToWatchlist('${movie.id}','${movie.title}')"
                         title="${isInWatchlist ? 'In Watchlist' : 'Add to Watchlist'}">
                     ${isInWatchlist ? '✓ In Watchlist' : '+ Watchlist'}
                 </button>
@@ -231,13 +237,6 @@ function createMovieCard(movie) {
     `;
     
     return card;
-}
-
-function showMovieInfo(movieId) {
-    window.open(`https://www.imdb.com/title/${movieId}`, '_blank');
-}
-function playMovie(movieId) {
-    window.location.href = `Movie_Play.html?id=${movieId}`;
 }
 
 // Sort results
