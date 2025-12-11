@@ -38,7 +38,6 @@ async function loadMovies() {
         
         // Slice 5 elements starting from the random index
         allMovies = allMovies.slice(randomStart, randomStart + 5);
-        console.log(allMovies)
             allMovies.forEach(element => {
                 document.getElementById('watch-more-rows').innerHTML = document.getElementById('watch-more-rows').innerHTML + `
                 <div class="netflix-movie-card">
@@ -69,6 +68,7 @@ loadMovies();
 document.getElementById('homebtn').addEventListener('click',function(){
         window.location.href = "main-movie-page.html"
 });
+
 
 
 
