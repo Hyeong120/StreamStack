@@ -136,16 +136,18 @@ function updateActiveFiltersDisplay() {
 // Perform search
 async function performSearch() {
     query = document.getElementById('searchInput').value;
-    const currentResults = await searchfunc(query,genres,sortBy,allMovies);
+    const currentResults = await searchfunc(query.toLowerCase(),genres,sortBy,allMovies);
     currentPage = 1;
     displayResults(currentResults);
     updateResultsInfo(query, currentResults);
+    updateActiveFiltersDisplay();
 }
 
 async function performSort() {
-    const currentResults = await searchfunc(query,genres,sortBy,allMovies);
+    const currentResults = await searchfunc(query.toLowerCase(),genres,sortBy,allMovies);
     displayResults(currentResults);
     updateResultsInfo(query, currentResults);
+    updateActiveFiltersDisplay();
 }
 
 // Display results
