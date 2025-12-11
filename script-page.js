@@ -511,7 +511,7 @@ async function loadMovies() {
                 <div class="netflix-action-row">
                     <div class="netflix-main-actions">
                         <button class="netflix-play-btn" onclick="playMovie('${element.id}')">▶</button>
-                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', 'Movie 1', this)">+</button>
+                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', ${element.title}, this)">+</button>
                     </div>
                     <button class="netflix-info-btn" onclick="showMovieInfo('${element.id}')">ℹ</button>
                 </div>
@@ -540,7 +540,7 @@ async function loadMovies() {
                 <div class="netflix-action-row">
                     <div class="netflix-main-actions">
                         <button class="netflix-play-btn" onclick="playMovie('${element.id}')">▶</button>
-                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', 'Movie 1', this)">+</button>
+                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', ${element.title}, this)">+</button>
                     </div>
                     <button class="netflix-info-btn" onclick="showMovieInfo('${element.id}')">ℹ</button>
                 </div>
@@ -566,7 +566,7 @@ async function loadMovies() {
                 <div class="netflix-action-row">
                     <div class="netflix-main-actions">
                         <button class="netflix-play-btn" onclick="playMovie('${element.id}')">▶</button>
-                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', 'Movie 1', this)">+</button>
+                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', ${element.title}, this)">+</button>
                     </div>
                     <button class="netflix-info-btn" onclick="showMovieInfo('${element.id}')">ℹ</button>
                 </div>
@@ -592,7 +592,7 @@ async function loadMovies() {
                 <div class="netflix-action-row">
                     <div class="netflix-main-actions">
                         <button class="netflix-play-btn" onclick="playMovie('${element.id}')">▶</button>
-                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', 'Movie 1', this)">+</button>
+                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', ${element.title}, this)">+</button>
                     </div>
                     <button class="netflix-info-btn" onclick="showMovieInfo('${element.id}')">ℹ</button>
                 </div>
@@ -619,7 +619,7 @@ async function loadMovies() {
                 <div class="netflix-action-row">
                     <div class="netflix-main-actions">
                         <button class="netflix-play-btn" onclick="playMovie('${element.id}')">▶</button>
-                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', 'Movie 1', this)">+</button>
+                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', ${element.title}, this)">+</button>
                     </div>
                     <button class="netflix-info-btn" onclick="showMovieInfo('${element.id}')">ℹ</button>
                 </div>
@@ -645,7 +645,7 @@ async function loadMovies() {
                 <div class="netflix-action-row">
                     <div class="netflix-main-actions">
                         <button class="netflix-play-btn" onclick="playMovie('${element.id}')">▶</button>
-                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', 'Movie 1', this)">+</button>
+                        <button class="netflix-watchlist-btn" onclick="toggleWatchlist('${element.id}', ${element.title}, this)">+</button>
                     </div>
                     <button class="netflix-info-btn" onclick="showMovieInfo('${element.id}')">ℹ</button>
                 </div>
@@ -663,6 +663,7 @@ async function loadMovies() {
 
 
 loadMovies();
+
 
 
 
