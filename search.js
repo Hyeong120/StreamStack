@@ -247,13 +247,13 @@ function createMovieCard(movie) {
     `;
 
     card.querySelector(`.movie-poster`).addEventListener('click', function() {
-        playMovie('${movie.id}');
+        playMovie(movie.id);
     });
     card.querySelector(`#info-btn`).addEventListener('click', function() {
-        showMovieInfo('${movie.id}');
+        showMovieInfo(movie.id);
     });
     card.querySelector(`#play-btn`).addEventListener('click', function() {
-        playMovie('${movie.id}');
+        playMovie(movie.id);
     });
     
 
