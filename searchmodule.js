@@ -42,7 +42,7 @@ async function sorta(sort,result,ss) {
   if (sort == "rating") {
         bb = result.sort((a, b) => {
           const ratingDiff = Math.abs(a.rating - b.rating);
-              if (ratingDiff > 1) {
+              if (ratingDiff > 0.5) {
                   return b.rating - a.rating;
               }
           
@@ -83,6 +83,7 @@ async function searchfunc(serch, BS, sort, jsonData){
 
 export default ben
 export { searchfunc }
+
 
 
 
