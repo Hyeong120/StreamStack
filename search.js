@@ -47,7 +47,7 @@ async function loadMovies() {
         })
         document.getElementById('searchInput').value = searchQuery;
         query = searchQuery || "";
-        const currentResults = await searchfunc(searchQuery.toLowerCase(),genres,sortBy,allMovies);
+        const currentResults = await searchfunc(query.toLowerCase(),genres,sortBy,allMovies);
         currentPage = 1;
         displayResults(currentResults);
         updateResultsInfo(query, currentResults);
@@ -55,7 +55,7 @@ async function loadMovies() {
     } else{
         document.getElementById('searchInput').value = searchQuery;
         query = searchQuery || "";
-        const OutsideSearch = await ben(searchQuery.toLowerCase(), sortBy, allMovies,);
+        const OutsideSearch = await ben(query.toLowerCase(), sortBy, allMovies,);
         displayResults(OutsideSearch);
         updateResultsInfo(searchQuery,OutsideSearch);
         updateActiveFiltersDisplay()
