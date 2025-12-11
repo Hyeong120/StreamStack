@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Check if user is logged in
     if (localStorage.getItem('isLoggedIn') !== 'true') {
-        window.location.href = 'login.html';
+        window.location.href = 'Log in.html';
     }
 
     // Load user data into profile panel
@@ -521,5 +521,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 });
+
 
 
