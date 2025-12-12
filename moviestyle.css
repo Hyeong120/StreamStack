@@ -1060,7 +1060,7 @@ body {
     display: flex;
     width: 120vh;
     padding: 30px 40px;
-    background: linear-gradient(to top, transparent 70%, #000 100%);
+    background: linear-gradient(to top, transparent 80%, #181818 90%, #000 100%);
     border-radius: 0 0 12px 12px;
     align-items: flex-start;
     justify-content: flex-start;
@@ -1162,6 +1162,7 @@ body {
         width: 140vh;
     }
 }
+
 
 
 
