@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const ids = params.get("id");
 
 async function loadMovies() {
-        const response = await fetch('https://raw.githubusercontent.com/Bentelador/movie-bai/refs/heads/main/MDB.json');
+        const response = await fetch('github.com/Bentelador/StreamStack/raw/refs/heads/main/MDB.json');
         let allMovies = await response.json();
         let Movies = allMovies.filter(n => n.id.includes(ids));
         const buns = document.getElementById('main-content').innerHTML;
@@ -68,6 +68,7 @@ loadMovies();
 document.getElementById('homebtn').addEventListener('click',function(){
         window.location.href = "main-movie-page.html"
 });
+
 
 
 
