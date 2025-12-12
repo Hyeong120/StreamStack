@@ -1109,7 +1109,9 @@ body {
 .title h1 {
     font-size: 2.8rem;
     font-weight: 800;
-    color: #fff;
+    background: linear-gradient(45deg, #fff, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 15px;
     letter-spacing: -0.5px;
     line-height: 1.1;
@@ -1118,7 +1120,9 @@ body {
 .desc {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #d2d2d2;
+    background: linear-gradient(45deg, #fff, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-top: 10px;
     margin-bottom: 25px;
     max-width: 95%;
@@ -1135,7 +1139,9 @@ body {
 
 .li-datas li {
     font-size: 1.05rem;
-    color: #aaa;
+    background: linear-gradient(45deg, #fff, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background: rgba(255, 255, 255, 0.05);
     padding: 8px 16px;
     border-radius: 20px;
@@ -1162,6 +1168,7 @@ body {
         width: 140vh;
     }
 }
+
 
 
 
