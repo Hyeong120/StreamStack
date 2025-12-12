@@ -21,7 +21,7 @@ Welcome to StreamStack, an online streaming website made for entertainment lover
 
 ## 🛠️ Technologies Used
 - **HTML** – Structure and layout  
-- **CSS / Tailwind / Bootstrap** – Styling and responsive design  
+- **CSS** – Styling and responsive design  
 - **JavaScript** – Dynamic content and UI interactions and Backend
 - **Database (JSON)** – Storing movie info and user data  
 - **Video Player Library** – For streaming functionality  
