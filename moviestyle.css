@@ -1110,10 +1110,7 @@ body {
 .title h1 {
     font-size: 2.8rem;
     font-weight: 800;
-    background: linear-gradient(45deg, #fff, #ff6b6b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #fff;
     margin-bottom: 15px;
     letter-spacing: -0.5px;
     line-height: 1.1;
@@ -1122,10 +1119,7 @@ body {
 .desc {
     font-size: 1.1rem;
     line-height: 1.6;
-    background: linear-gradient(45deg, #fff, #ff6b6b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #d2d2d2;
     margin-top: 10px;
     margin-bottom: 25px;
     max-width: 95%;
@@ -1141,46 +1135,18 @@ body {
 }
 
 .li-datas li {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-    backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.05rem;
+    color: #aaa;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
     border-radius: 20px;
-    padding: 20px 30px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
 }
 
 .li-datas li:hover {
-    transform: translateY(-10px) scale(1.03);
-    border-color: rgba(229, 9, 20, 0.6);
-    box-shadow: 0 20px 40px rgba(229, 9, 20, 0.3);
-}
-
-.li-datas li::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.6s ease;
-}
-
-.li-datas li:hover::before {
-    left: 100%;
-}
-
-.li-datas li .action-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
+    background: rgba(229, 9, 20, 0.15);
+    color: #fff;
 }
 
 /* Optional: Add a subtle glow effect on player hover */
@@ -1197,8 +1163,6 @@ body {
         width: 140vh;
     }
 }
-
-
 
 
 
